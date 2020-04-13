@@ -2,7 +2,7 @@
   "name": "execbg",
   "displayName": "ExecBG",
   "description": "Execute commands from VS Code in the background",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "daaku",
   "engines": {
     "vscode": "^1.44.0"
