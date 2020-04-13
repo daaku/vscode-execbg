@@ -26,7 +26,7 @@
   "activationEvents": [
     "onCommand:execbg.run"
   ],
-  "main": "./out/index.js",
+  "main": "./dist/index.js",
   "contributes": {
     "commands": [
       {
@@ -37,16 +37,19 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "lint": "tslint -p ./"
+    "vscode:prepublish": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
     "@types/node": "^13.11.1",
     "@types/vscode": "^1.44.0",
+    "@types/webpack": "^4.41.11",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.2",
     "typescript": "^3.8.3",
-    "vsce": "^1.75.0"
+    "vsce": "^1.75.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
     "tree-kill": "^1.2.2"
