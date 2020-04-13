@@ -36,7 +36,6 @@ function runCommand(args: Args) {
 
 export function activate(context: vscode.ExtensionContext) {
   commandOutput = vscode.window.createOutputChannel('ExecBG');
-  commandOutput.appendLine('Hello World from ExecBG');
   context.subscriptions.push(commandOutput);
   context.subscriptions.push(
     vscode.commands.registerCommand('execbg.runCommand', runCommand));
