@@ -26,7 +26,7 @@
   "activationEvents": [
     "onCommand:execbg.runCommand"
   ],
-  "main": "./out/extension.js",
+  "main": "./out/index.js",
   "contributes": {
     "commands": [
       {

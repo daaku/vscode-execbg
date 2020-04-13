@@ -5,21 +5,30 @@ import treeKill from 'tree-kill';
 const runningProcesses: ChildProcess[] = [];
 let commandOutput = null;
 
-function runCommand(args: any[]) {
+interface Args {
+  cmd?: string;
+  cwd?: string;
+  args?: string[];
+}
+
+function runCommand(args: Args) {
+  if (!args || !args.cmd) {
+    vscode.window.showErrorMessage('ExecBG: Error: No command specified!');
+    return;
+  }
   const opts: SpawnOptions = {
-    cwd: vscode.workspace.rootPath,
+    cwd: args.cwd || vscode.workspace.rootPath,
   };
-  const cmd = args[0];
-  const process = spawn(cmd, args.slice(1), opts);
-  commandOutput.appendLine(`> Running command \`${cmd}\`...`)
+  const process = spawn(args.cmd, args.args || [], opts);
+  commandOutput.appendLine(`> Running command \`${args.cmd}\`...`)
   function printOutput(data) { commandOutput.append(data.toString()); }
   process.stdout.on('data', printOutput);
   process.stderr.on('data', printOutput);
   process.on('close', (status) => {
     if (status === 0) {
-      commandOutput.appendLine(`> Command ${cmd} ran successfully.`);
+      commandOutput.appendLine(`> Command ${args.cmd} ran successfully.`);
     } else {
-      commandOutput.appendLine(`> ERROR: Command ${cmd} exited with status code ${status}.`);
+      commandOutput.appendLine(`> ERROR: Command ${args.cmd} exited with status code ${status}.`);
     }
   });
   runningProcesses.push(process);
@@ -27,6 +36,7 @@ function runCommand(args: any[]) {
 
 export function activate(context: vscode.ExtensionContext) {
   commandOutput = vscode.window.createOutputChannel('ExecBG');
+  commandOutput.appendLine('Hello World from ExecBG');
   context.subscriptions.push(commandOutput);
   context.subscriptions.push(
     vscode.commands.registerCommand('execbg.runCommand', runCommand));
