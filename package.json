@@ -24,13 +24,13 @@
     "theme": "light"
   },
   "activationEvents": [
-    "onCommand:execbg.runCommand"
+    "onCommand:execbg.run"
   ],
   "main": "./out/index.js",
   "contributes": {
     "commands": [
       {
-        "command": "execbg.runCommand",
+        "command": "execbg.run",
         "title": "Run Command in Background",
         "category": "ExecBG"
       }

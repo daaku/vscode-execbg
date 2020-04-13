@@ -8,7 +8,7 @@ such:
 [
   {
     "key": "shift+alt+r",
-    "command": "execbg.runCommand",
+    "command": "execbg.run",
     "args": {
       "cmd": "/usr/bin/sleep",
       "args": ["60"],

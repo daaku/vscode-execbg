@@ -11,7 +11,7 @@ interface Args {
   args?: string[];
 }
 
-function runCommand(args: Args) {
+function run(args: Args) {
   if (!args || !args.cmd) {
     vscode.window.showErrorMessage('ExecBG: Error: No command specified!');
     return;
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
   commandOutput = vscode.window.createOutputChannel('ExecBG');
   context.subscriptions.push(commandOutput);
   context.subscriptions.push(
-    vscode.commands.registerCommand('execbg.runCommand', runCommand));
+    vscode.commands.registerCommand('execbg.run', run));
 }
 
 export function deactivate() {
