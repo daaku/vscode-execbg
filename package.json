@@ -1,0 +1,54 @@
+{
+  "name": "execbg",
+  "displayName": "ExecBG",
+  "description": "Execute commands from VS Code in the background",
+  "version": "0.1.0",
+  "publisher": "daaku",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "icon.png",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daaku/vscode-execbg/issues"
+  },
+  "homepage": "https://github.com/daaku/vscode-execbg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daaku/vscode-execbg"
+  },
+  "galleryBanner": {
+    "theme": "light"
+  },
+  "activationEvents": [
+    "onCommand:execbg.runCommand"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "execbg.runCommand",
+        "title": "Run Command in Background",
+        "category": "ExecBG"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "tslint -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^13.11.1",
+    "@types/vscode": "^1.44.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "spawn-command": "^0.0.2-1",
+    "tree-kill": "^1.2.2"
+  }
+}
