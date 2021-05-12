@@ -44,7 +44,7 @@
     "@types/node": "^13.11.1",
     "@types/vscode": "^1.44.0",
     "@types/webpack": "^4.41.22",
-    "ts-loader": "^8.0.5",
+    "ts-loader": "^9.1.2",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.3",
     "vsce": "^1.88.0",
