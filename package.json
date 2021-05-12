@@ -41,7 +41,7 @@
     "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
-    "@types/node": "^13.11.1",
+    "@types/node": "^15.0.2",
     "@types/vscode": "^1.44.0",
     "@types/webpack": "^4.41.22",
     "ts-loader": "^8.0.5",
